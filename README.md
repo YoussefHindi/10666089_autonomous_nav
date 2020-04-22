@@ -107,8 +107,9 @@ run the following command
 ```
 roslaunch turtlebot_rviz_launchers vrep_turtlebot_rviz_launch.launch
 ```
+## 2D Hector SLAM
 
-Hector mapping is quite nice and gives accurate readings.
+Hector mapping is a SLAM package that  gives good map with fairly accurate results. More data about hectormapping and it ros wiki page could be found [here](http://wiki.ros.org/hector_mapping)
 
 Run hector mapping launch file 
 ```
@@ -118,9 +119,19 @@ navigate the robot using the keyboard arrows make sure you select the the window
 ```
 roslaunch turtlebot_teleop_keyboard keyboard_teleop_diff_drive.launch
 ```
-As the robot moves around, a map is build around check the video for Hector mapping SLAM in the videos  folder.
+As the robot moves around, a map is build around check the video for Hector mapping SLAM in the videos  folder.  
+Open /10666089_autonomous_nav/videos/SLAM 
+you'll find 3 video showing the package working and how to use it: 
+'''
+SLAM1
+SLAM2
+SLAM3
+'''
+
 ### Point-To-Point Path Planning (PTP-PP)
+
 Here you after you build your 2D map using Hector SLAM you will selct point on the map and the robot will move to this point avoiding obstacles using move base using dijkstra path planning algorithm. 
+move base was used to implement this function more details could be found [here](http://wiki.ros.org/move_base)  
 
 run the launch file for robot path planning navigation using 
 ```
@@ -144,12 +155,19 @@ other path planning algorithms are used will be shown later in this project.
 
 Check the videos folder showing how to use the package.
 
-### Error measurement between global path planned and actual path taken by the robot
-Here i have implemented a c++ script which automatically collects the robots position and actual robot path taken and compare it to the robots global path planned and publish the robots coordinates to an ecxel or .csv file using this spreadsheet we will calculate the mean and standard deviation (standard deviation is the calculation of how far the robots position is from the mean error).
+Open /10666089_autonomous_nav/videos/PathPlanning 
+you'll find 4 video showing the package working and how to use it: 
+'''
+Point_PP_1
+Point_PP_2
+Point_PP_3
+Point_PP_4
+'''
+
+### Error measurement between global path planned and actual path taken by the robot  
+Here i have implemented a c++ customised script which automatically collects the robots position and actual robot path taken and compare it to the robots global path planned and publish the robots coordinates to an ecxel or .csv file using this spreadsheet we will calculate the mean and standard deviation (standard deviation is the calculation of how far the robots position is from the mean error).
 
 so first you must have all the previous explained packages up and running an make sure you first have selected a point for the robot to move to initially before running the error measurement node. (eg. if you have just launched the PTP-PP package give the robot a near point position to navigate to before running the error measurment node), very crucial for the node to run successfully.
-
-
 
 now after you made sure that you gave an initial position to the robot to go to and the robot reached that goal run the error measurement node but first open the file ~/10666089_autonomous_nav/autonomous_navigation_wss/turtlebot_msgs/src/path_planning_error_calculation/error_calculation.cpp, and make sure the set path is the path you want to store your .csv file by replacing the "XXXX" with your pc name assuming you done everything right it's default location assuming you clonned the repository in the home folder will be inside /10666089_autonomous_nav folder otheriwse an error might occur or you might not find the file if the file path is not modified.  
 
@@ -163,12 +181,19 @@ the terminal will print "please set target goal" as soon you choos your target g
 
 As soon the robot reaches it's point the terminal will print "goal reached" and the file will be generated into it's saved path.
 Now lets' go to the .csv file generated!
-![](images/file_generated.png)
+![](images/file_generated.png)  
 
+Check the videos folder showing how to use the package.
+
+Open /10666089_autonomous_nav/videos/Error_measurement   
+you'll find 1 video showing the package working and how to use it: 
+'''
+error_measurment
+'''
 
 ### Error calculation  
 
-the file is saved named "error.csv" open the file.
+the file is saved named "error.csv" in /10666089_autonomous_nav folder open the file.
 
 make sure separated by space is selected and press "ok"
 
@@ -217,8 +242,16 @@ NB:replace the X letter with the same cell letter and number that set in the ave
 
 In the spread sheet you calculated the mean (Average_Error_Percentage) and the Standard Deviation which how far the path the robot was taking from the the average path error.
 <img src="images/final_excel.png" >  
-Now basically you have calculated the average error percentage between the global path and the actual path taken by the robot most of my expeiments was between 3~10 % which is fairly accurate and acceptable. 
+Now basically you have calculated the average error percentage between the global path and the actual path taken by the robot most of my expeiments was between 3~10 % which is fairly accurate and acceptable.
  
+Check the videos folder showing how to use the package.
+
+Open /10666089_autonomous_nav/videos/Error_calculation   
+you'll find 1 video showing the package working and how to use it: 
+'''
+error_calc
+'''
+
 ### EXTRA Improvement to the State of the Art
 
 In this secion i chose to improve the path planning algorithm by applying different path planning methods to th state of the art. The importance of this section is not easily identifiable as different path planning algorithims has it's advantages and disadvantages such as getting stuck in local minima or high computational time for path calculation etc. check this [paper](https://www.researchgate.net/publication/320774676_Path_Planning_Algorithms_A_comparative_study) for further details about the importance of different path planning algorithims and the importance of each.   
@@ -254,6 +287,16 @@ In this example we changed to A* path planning algorithm.
 
 catkin_make again and source it again and relaunch the launch file again and the new algorithm is set. 
 This package was implemented and based and build up upon from this [github repositiory](https://github.com/sahibdhanjal/Path-Planning-Simulator)
+
+
+Check the videos folder showing how to use the package.
+
+Open /10666089_autonomous_nav/videos/new_pp_algorithm   
+you'll find 2 video showing the package working and how to use it: 
+'''
+PP_algorithm_1
+PP_algorithm_2
+'''
 
 ## Deployment
 
