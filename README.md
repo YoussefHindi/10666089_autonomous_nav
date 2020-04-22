@@ -53,12 +53,12 @@ turtlebot_interaction
 turtlebot_map_and_nav  
 
 for (turtlebot_simulation) you have to catkin build
-'''
+```
 cd ~/10666089_autonomous_nav/autonomous_navigation_wss/turtlebot_simulation/
 catkin build
 cd ..
 source source_all.bash
-'''
+```
 
 Now After compiling and sourcing all packages lets start the simulation.
 
@@ -122,11 +122,11 @@ roslaunch turtlebot_teleop_keyboard keyboard_teleop_diff_drive.launch
 As the robot moves around, a map is build around check the video for Hector mapping SLAM in the videos  folder.  
 Open /10666089_autonomous_nav/videos/SLAM 
 you'll find 3 video showing the package working and how to use it: 
-'''
+```
 SLAM1
 SLAM2
 SLAM3
-'''
+```
 
 ### Point-To-Point Path Planning (PTP-PP)
 
@@ -157,12 +157,12 @@ Check the videos folder showing how to use the package.
 
 Open /10666089_autonomous_nav/videos/PathPlanning 
 you'll find 4 video showing the package working and how to use it: 
-'''
+```
 Point_PP_1
 Point_PP_2
 Point_PP_3
 Point_PP_4
-'''
+```
 
 ### Error measurement between global path planned and actual path taken by the robot  
 Here i have implemented a c++ customised script which automatically collects the robots position and actual robot path taken and compare it to the robots global path planned and publish the robots coordinates to an ecxel or .csv file using this spreadsheet we will calculate the mean and standard deviation (standard deviation is the calculation of how far the robots position is from the mean error).
@@ -187,9 +187,9 @@ Check the videos folder showing how to use the package.
 
 Open /10666089_autonomous_nav/videos/Error_measurement   
 you'll find 1 video showing the package working and how to use it: 
-'''
+```
 error_measurment
-'''
+```
 
 ### Error calculation  
 
@@ -248,9 +248,9 @@ Check the videos folder showing how to use the package.
 
 Open /10666089_autonomous_nav/videos/Error_calculation   
 you'll find 1 video showing the package working and how to use it: 
-'''
+```
 error_calc
-'''
+```
 
 ### EXTRA Improvement to the State of the Art
 
@@ -293,16 +293,17 @@ Check the videos folder showing how to use the package.
 
 Open /10666089_autonomous_nav/videos/new_pp_algorithm   
 you'll find 2 video showing the package working and how to use it: 
-'''
+```
 PP_algorithm_1
 PP_algorithm_2
-'''
+```
 
 ## Deployment
 
 * Additional Videos can be found for each implementation showing how it works and how to use it.  
 * Images folder is found in this repository as well helping you showing how this implementation works.  
 * sample_files folder contains the map for the scene in .yaml file, also it has an implemented example error.csv file for futher referencing and help.
+
 
 ## Built With
 
