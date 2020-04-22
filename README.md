@@ -14,7 +14,7 @@ Ubuntu 16.04
 ROS kinteic   
 VREP PRO EDU V 3.6.2  
 
-Install the following packages before using these commands:
+Make sure you have the following packages installed or install them using these commands:
 
 ```
 sudo apt install ros-kinetic-tf2*
@@ -25,7 +25,6 @@ sudo apt-get install ros-kinetic-move-base ros-kinetic-pointcloud-to-laserscan r
 sudo apt-get install -y python-wstool python-rosdep ninja-build
 sudo apt install ros-kinetic-hector*
 sudo apt-get install ros-kinetic-dwa-local-planner
-
 ```
 
 ### Installing
@@ -234,7 +233,7 @@ NB:replace the X letter with just the cell letter and number above it
 The number shown next to "Average_error_percentage" is in percent representing the mean error
 
 If want to calculate the standard deviation apply the exact same for the cell bellow and type this formula:  
-NB:replace the X letter with the same cell letter and number that set in the average.  
+NB:replace the X letter with the same cell letter and number that was set in the average cell.  
 ```
 =STDEV(I2:X)
 ```
@@ -254,9 +253,9 @@ error_calc
 
 ### EXTRA Improvement to the State of the Art
 
-In this secion i chose to improve the path planning algorithm by applying different path planning methods to th state of the art. The importance of this section is not easily identifiable as different path planning algorithims has it's advantages and disadvantages such as getting stuck in local minima or high computational time for path calculation etc. check this [paper](https://www.researchgate.net/publication/320774676_Path_Planning_Algorithms_A_comparative_study) for further details about the importance of different path planning algorithims and the importance of each.   
+In this section i chose to improve the path planning algorithm by applying different path planning methods to th state of the art. The importance of this section is not easily identifiable as different path planning algorithims has it's advantages and disadvantages such as getting stuck in local minima or high computational time for path calculation etc. check this [paper](https://www.researchgate.net/publication/320774676_Path_Planning_Algorithms_A_comparative_study) for further details comparing different path planning algorithims and the importance of each.   
 
-Change the vrep scene and open the scene "youssef_testing_pp_algorithm" in ('10666089_autonomous_nav/autonomous_navigation_wss/turtlebot_simulation/src/vrep_simulation/scenes/') this scene is more empty with less obstacles where you can notice the robots path easier. The implemented algorithim doesn't see obstacles so make sure the set target point for the robot doesn't have an obstacle in between.
+Change the vrep scene and open the scene "youssef_testing_pp_algorithm" in ('10666089_autonomous_nav/autonomous_navigation_wss/turtlebot_simulation/src/vrep_simulation/scenes/youssef_testing_pp_algorithm') this scene is more empty with less obstacles where you can notice the robots path easier. The implemented algorithim doesn't see obstacles so make sure the set target point for the robot doesn't have an obstacle in between.
 
 Leaving all up and running including hector SLAM and close any running path planning launch files and run the following launch file:
 ```
@@ -269,7 +268,7 @@ It's default set is Breadth-First Search Algorithim that can be changed to diffe
 * Jump Point Search   
 * Breadth-First Search  
 
-to change it open the file pathplanners.cpp "/10666089_autonomous_nav/autonomous_navigation_wss/turtlebot_map_and_nav/src/turtlebot_navigation/src/pathplanners.cpp" and go to line 211, you'll find 4 lines as following:
+to change it open the file pathplanners.cpp in "/10666089_autonomous_nav/autonomous_navigation_wss/turtlebot_map_and_nav/src/turtlebot_navigation/src/pathplanners.cpp" and go to line 211, you'll find 4 lines as following:
 ```
 	 //bestPath=AStar(startCell, goalCell,  g_score);  
 	 //bestPath=Dijkstra(startCell, goalCell,  g_score);  
@@ -286,10 +285,11 @@ As Breadth-First Search is the default and implemented it will be uncommented if
 In this example we changed to A* path planning algorithm.
 
 catkin_make again and source it again and relaunch the launch file again and the new algorithm is set. 
-This package was implemented and based and build up upon from this [github repositiory](https://github.com/sahibdhanjal/Path-Planning-Simulator)
+This package was implemented and based and build up upon from this [github repositiory](https://github.com/sahibdhanjal/Path-Planning-Simulator)  
 
+Also check this [link](https://qiao.github.io/PathFinding.js/visual/) that is a simulation that shows and visualise different path plans depending on the algorithm used.
 
-Check the videos folder showing how to use the package.
+Check the videos folder showing the difference betweenthe 2 path planning algorithms.
 
 Open /10666089_autonomous_nav/videos/new_pp_algorithm   
 you'll find 2 video showing the package working and how to use it: 
