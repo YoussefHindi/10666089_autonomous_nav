@@ -300,7 +300,7 @@ PP_algorithm_2
 
 ## Deployment
 
-* Additional Videos can be found for each implementation showing how it works and how to use it.  
+* Additional Videos can be found for each implementation showing how it works and how to use it, some videos has been speeded up due to limited hardware capability and the robot movement was so slow.  
 * Images folder is found in this repository as well helping you showing how this implementation works.  
 * sample_files folder contains the map for the scene in .yaml file, also it has an implemented example error.csv file for futher referencing and help.
 
