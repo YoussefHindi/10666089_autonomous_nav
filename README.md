@@ -310,7 +310,7 @@ PP_algorithm_2
 * [ sahibdhanjal/Path-Planning-Simulator ](https://github.com/sahibdhanjal/Path-Planning-Simulator) - github repository used for different path planning algorithms implementation.
 
 ## Authors
-* **Mario Giaoni** - *Initial work* 
+* **Mario Gianni** - *Initial work* 
 * **Youssef Hindi** - *Implemented These additional functionalities* 
 * **Sahib Singh Dhanjal** - *Used his Path planning algorithm node* - [Github Repository](https://github.com/sahibdhanjal/Path-Planning-Simulator)
 
